@@ -1,8 +1,25 @@
+import { useState } from "react"
 import RegisterForm from "../Components/RegisterForm"
 
 const Register = () => {
+    const [formData, setFormData] = useState({})
+    
+    function handleOnChange(e) {
+        const {name,value} = e.target;
+        setFormData((prevData) => {
+            return (
+                {
+                    ...prevData,
+                    [name] : value
+                }
+            )
+        } )
+    }
+
+    console.log(formData)
+
     return (
-        <RegisterForm/>
+        <RegisterForm formData={formData} handleOnChange={handleOnChange}/>
     )
 }
 
