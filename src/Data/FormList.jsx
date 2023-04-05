@@ -2,9 +2,9 @@ const dataArray = [
   {
     id: "name",
     type: "text",
-    label: "Nama Lengkap",
+    label: "Full Name",
     name: "name",
-    autoComplete: "Nama lengkap",
+    autoComplete: "fullName",
   },
   {
     id: "email",
@@ -24,7 +24,7 @@ const dataArray = [
     id: "confirm-password",
     type: "password",
     label: "Confirm Password",
-    name: "confirm-password",
+    name: "confirmPassword",
     autoComplete: "current-password",
   },
   {
@@ -32,6 +32,13 @@ const dataArray = [
     type: "dropdown",
     label: "School",
     name: "school",
+    autoComplete: "",
+  },
+  {
+    id: "code",
+    type: "text",
+    label: "Register Code",
+    name: "registerCode",
     autoComplete: "",
   },
 ];

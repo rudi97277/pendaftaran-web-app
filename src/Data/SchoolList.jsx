@@ -1,12 +1,12 @@
 const SchoolList = [
   {
     id: "sman1",
-    value: "SMAN 1 MEDAN",
+    value: "sman1",
     text: "SMAN 1 MEDAN",
   },
   {
     id: "sman2",
-    value: "SMAN 2 MEDAN",
+    value: "sman2",
     text: "SMAN 2 MEDAN",
   },
 ];

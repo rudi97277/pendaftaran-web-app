@@ -1,7 +1,10 @@
 import { ThemeProvider } from "@emotion/react";
 import dataArray from "../data/FormList";
 import {
+  Backdrop,
   Box,
+  Button,
+  CircularProgress,
   Container,
   CssBaseline,
   FormControl,
@@ -39,8 +42,9 @@ const RegisterForm = (props) => {
       <FormControl
         key={item.id}
         sx={{
-          display: "flex",
+          display : "flex",
           width: "100%",
+          textAlign : "left",
           flexDirection: "row",
           marginTop: 1.7,
         }}
@@ -53,11 +57,16 @@ const RegisterForm = (props) => {
           id={item.id}
           label={item.label}
           fullWidth
+          required
           defaultValue=""
         >
-          {schools.map(function (school) {
+          {schools.map(function (school,data) {
             return (
-              <MenuItem key={school.id} value={school.value}>
+              <MenuItem  
+                key={school.id}
+                selected={data[item.name] == school.value ? true : false} 
+                value={school.value}
+              >
                 {school.text}
               </MenuItem>
             );
@@ -82,8 +91,30 @@ const RegisterForm = (props) => {
           <Typography component="h1" variant="h5">
             Register
           </Typography>
-          <Box component="form" sx={{ mt: 1 }}>
+          <Box 
+            component="form"
+            noValidate
+            onSubmit={(e) => props.handleSubmit(e)} 
+            nosx={{ mt: 1 }}
+          
+          >
             {customTextField}
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{mt: 3, mb: 2}}
+            >
+              Register
+            </Button>
+            <Backdrop
+              sx={{
+                color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1
+              }}
+              open={props.openBackdrop}
+            >
+              <CircularProgress color="inherit"/>
+            </Backdrop>
           </Box>
         </Box>
       </Container>
