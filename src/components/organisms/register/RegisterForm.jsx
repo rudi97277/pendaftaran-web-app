@@ -1,25 +1,22 @@
-import { ThemeProvider } from "@emotion/react";
 import dataArray from "../../../data/FormList";
 import {
   Backdrop,
   Box,
   Button,
   CircularProgress,
-  Container,
-  CssBaseline,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
   TextField,
   Typography,
-  createTheme,
 } from "@mui/material";
 import SchoolList from "../../../data/SchoolList";
 
 const RegisterForm = (props) => {
   const schools = SchoolList;
   const data = props.formData;
+
   const customTextField = dataArray.map(function (item) {
     return item.type === "text" || item.type === "password" ? (
       <TextField
@@ -69,21 +66,27 @@ const RegisterForm = (props) => {
   return (
     <Box
       sx={{
-        marginTop: 8,
+        maxWidth: "65vh",
+        p: 5,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        backgroundColor: "#FFFFFF",
+        borderRadius: "8px",
       }}
     >
-      <Typography component="h1" variant="h5">
-        Register
+      <Typography component="h1" variant="h5" sx={{m: 1}}>
+        Register Student
       </Typography>
       <Box
         component="form"
         onSubmit={(e) => props.handleSubmit(e)}
-        nosx={{ mt: 1 }}
       >
         {customTextField}
+        {props.info && (<Typography  sx={{color : 'red'}}>
+          {props.info}
+        </Typography>)}  
+      
         <Button
           type="submit"
           fullWidth

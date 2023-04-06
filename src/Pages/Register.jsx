@@ -6,13 +6,14 @@ import { Box } from "@mui/material";
 const Register = () => {
   const [formData, setFormData] = useState({});
   const [openBackdrop, setOpenBackdrop] = useState(false);
+  const [info, setInfo] = useState('');
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     setOpenBackdrop((prevBackDrop) => !prevBackDrop);
     setTimeout(() => {
+      formData.password !== formData.confirmPassword && setInfo('Password berbeda')
       setOpenBackdrop((prevBackDrop) => !prevBackDrop);
-      navigate("/");
     }, 2000);
   };
   const handleOnChange = (e) => {
@@ -23,19 +24,17 @@ const Register = () => {
         [name]: value,
       };
     });
+    setInfo('');
   };
 
   return (
-    <Box
-      sx={{
-        maxWidth: "500px",
-      }}
-    >
+    <Box>
       <RegisterForm
         openBackdrop={openBackdrop}
         formData={formData}
         handleOnChange={handleOnChange}
         handleSubmit={handleSubmit}
+        info={info}
       />
     </Box>
   );
