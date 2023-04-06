@@ -1,9 +1,7 @@
-import Info from "../Components/Info"
+import Info from "../components/organisms/home/Info";
 
 const Home = () => {
-    return (
-        <Info/>
-    )
-}
+  return <Info />;
+};
 
-export default Home
+export default Home;

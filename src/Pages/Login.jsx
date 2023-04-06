@@ -1,9 +1,7 @@
-import LoginForm from "../Components/LoginForm"
+import LoginForm from "../components/organisms/login/LoginForm";
 
 const Login = () => {
-    return (
-        <LoginForm/>
-    )
-}
+  return <LoginForm />;
+};
 
-export default Login
+export default Login;
