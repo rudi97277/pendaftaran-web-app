@@ -1,15 +1,34 @@
-import {useNavigate} from "react-router-dom"
+import { Box, Button, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const Info = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    return (
-        <div>
-            <h3>HOME INFO</h3>
-            <button onClick={() => navigate('/login') }>Login</button>
-            <button onClick={() => navigate('/register') }>Register</button>
-        </div>
-        
-    )
-}
+  return (
+    <Box
+      sx={{
+        m: 5,
+        display: "flex",
+        alignItems: "center",
+        alignSelf: "center",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
+      <Typography sx={{}}>HOME INFO</Typography>
+      <Grid container spacing={2} columns={16}>
+        <Grid item xs={8}>
+          <Button variant="outlined" onClick={() => navigate("/login")}>
+            LOGIN
+          </Button>
+        </Grid>
+        <Grid item xs={8}>
+          <Button variant="outlined" onClick={() => navigate("/register")}>
+            REGISTER
+          </Button>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+};
 
-export default Info
+export default Info;

@@ -11,6 +11,7 @@ const MainLayout = () => {
         justifyContent: "center",
         alignSelf: "center",
         alignItems: "center",
+        bgcolor: "#F9F9F9",
       }}
     >
       <Box component="main" sx={{ position: "relative" }}>
